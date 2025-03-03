@@ -1,0 +1,14 @@
+# Виртуальная среда
+/myenv/
+myenv/
+
+# Файлы с переменными окружения
+.env
+.env.*
+*.env
+*.env.*
+env/
+env/*
+__pycache__/
+.vscode/
+*.log
