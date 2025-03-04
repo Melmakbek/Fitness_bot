@@ -1,9 +1,9 @@
 from tortoise import fields, models
 
-class User(models.Model):
-  id = fields.IntField(pk=True)
-  tg_id = fields.BigIntField(unique=True)
-  username = fields.CharField(max_length=255, null=True)
 
-  def __str__(self):
-    return f"(@{self.username})- {self.tg_id}"
+class Users(models.Model):
+    id = fields.IntField(pk=True)  # Первичный ключ
+    username = fields.CharField(max_length=255, unique=True) # Unique username
+
+    class Meta:
+        table = "users_table"  #  Здесь мы явно указываем имя таблицы

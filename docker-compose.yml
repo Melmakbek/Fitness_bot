@@ -1,9 +1,7 @@
-version: '3.7'
-
 services:
   bot:
     build: 
-    context: "./Fitness_bot"
-    dockerfile: "Fitness_bot.dockerfile"
-restart: on-failure
-env_file: .env
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    env_file: .envvvv
