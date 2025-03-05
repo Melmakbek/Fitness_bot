@@ -28,11 +28,11 @@ async def main() -> None:
     '[%(asctime)s)] - %(name)s - %(message)s'
   )
   logger.info('Starting fitness')
-  await Tortoise.init(
-        db_url=tortoise_config["connections"]["default"],  # Используем URL из конфигурации
-        modules={'models': ['db_info.models']},  # Указываем, где находятся ваши модели
-    )
-  await Tortoise.generate_schemas()
+  # await Tortoise.init(
+  #       db_url=tortoise_config["connections"]["default"],  # Используем URL из конфигурации
+  #       modules={'models': ['db_info.models']},  # Указываем, где находятся ваши модели
+  #   )
+  # await Tortoise.generate_schemas()
   logger.info('Tortoise started')
 
   config: Config = load_config()
@@ -44,7 +44,7 @@ async def main() -> None:
   dp.include_router(other_handlers.router)
   await bot.delete_webhook(drop_pending_updates=True)
   await dp.start_polling(bot)
-  await Tortoise.close_connections()
+  # await Tortoise.close_connections()
   logger.info('Tortoise closed')
 
 

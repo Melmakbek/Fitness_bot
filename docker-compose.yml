@@ -1,7 +1,18 @@
 services:
+  db:
+    image: postgres
+    restart: on-failure
+    ports:
+      - "5432:5432"  # Forward port 5432 from the container to the host
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes: 
+      - ./data/postgres:/var/lib/postgresql/data
   bot:
     build: 
       context: .
       dockerfile: Dockerfile
     restart: on-failure
-    env_file: .envvvv
+    env_file: .env
